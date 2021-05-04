@@ -1,38 +1,40 @@
 package ChessEngine.Board;
 
+import ChessEngine.ChessPieces.Piece;
+
 /**
  * Tile
  */
-class Tile {
+public class Tile {
 
     Piece pieceType;
-    Position postion;
+    Position position;
     Boolean isOccupied;
 
-    public Tile(Piece piece, Position postion){
-        this.pieceType = piece;
-        this.postion = postion;
+    public Tile(Piece pieceType, Position position){
+        this.pieceType = pieceType;
+        this.position = position;
         this.isOccupied = true;
     }
 
-    public Tile(Position postion){
-        this.postion = postion;
+    public Tile(Position position){
+        this.position = position;
         this.isOccupied = false;
     }
 
     public Position getPosition(){
-        return this.postion;
+        return this.position;
     }
 
-    public Position setPosition(Position newPosition){
-        this.postion = newPosition;
+    public void setPosition(Position newPosition){
+        this.position = newPosition;
     }
 
     public Piece getPiece(){
         return this.pieceType;
     }
 
-    public Piece setPiece(Piece newPiece){
+    public void setPiece(Piece newPiece){
         this.pieceType = newPiece;
     }
 
@@ -40,7 +42,7 @@ class Tile {
         return this.isOccupied;
     }
 
-    public Boolean setIsOccupied(Boolean occupyFlag){
+    public void setIsOccupied(Boolean occupyFlag){
         this.isOccupied = occupyFlag;
     }
 

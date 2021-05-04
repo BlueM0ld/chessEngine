@@ -5,18 +5,22 @@ package ChessEngine.Board;
  */
 public class Position {
 
-    String file;
-    String rank;
-    public Position(String file, String rank){
-        this.file = file;
-        this.rank = rank;
+    int file;
+    int rank;
+    public Position(int file, int rank) throws IllegalMoveException {
+        if(rank >=0 || rank <7 && file >=0 || rank <7){
+            this.file = file;
+            this.rank = rank;
+        }else {
+            throw new IllegalMoveException("Invalid Position");
+        }
     }
 
-    public String getFile(){
+    public int getFile(){
         return this.file;
     }
 
-    public String getRank(){
+    public int getRank(){
         return this.rank;
     }
 }

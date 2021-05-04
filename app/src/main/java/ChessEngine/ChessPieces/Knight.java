@@ -1,14 +1,20 @@
 package ChessEngine.ChessPieces;
 
+import ChessEngine.Board.ChessBoard;
+import ChessEngine.Board.Position;
+
+import java.util.List;
+
+
 /**
  * Knight
  */
-public class Knight extends PieceInterface {
+public class Knight extends Piece {
 
     Position position;
 
-    public Knight(Position postion){
-        this.position = postion;
+    public Knight(Position position){
+        this.position = position;
     }
 
     @Override
@@ -17,10 +23,13 @@ public class Knight extends PieceInterface {
     };
     
     @Override
-    public List<String> movePositions(){
+    public List<Position> movePositions(ChessBoard chessBoard){
 
+        return null;
     };
 
     @Override
-    public Boolean enpassantBoolean(){};
+    public Boolean enpassantBoolean(){
+        return false;
+    };
 }
