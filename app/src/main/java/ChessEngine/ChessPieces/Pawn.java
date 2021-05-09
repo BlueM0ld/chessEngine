@@ -50,7 +50,7 @@ public class Pawn extends Piece{
     };
 
     @Override
-    public Boolean enpassantBoolean(){
+    public Boolean enPassantBoolean(){
         return false;
     };
 }

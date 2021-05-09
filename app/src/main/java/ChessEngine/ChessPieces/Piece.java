@@ -9,5 +9,5 @@ public abstract class Piece {
 
     public abstract String typeOfPiece();
     public abstract List<Position> movePositions(ChessBoard board);
-    public abstract Boolean enpassantBoolean();
+    public abstract Boolean enPassantBoolean();
 }

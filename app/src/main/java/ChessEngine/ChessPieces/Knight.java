@@ -29,7 +29,7 @@ public class Knight extends Piece {
     };
 
     @Override
-    public Boolean enpassantBoolean(){
+    public Boolean enPassantBoolean(){
         return false;
     };
 }
