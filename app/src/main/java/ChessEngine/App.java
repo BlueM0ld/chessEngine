@@ -3,12 +3,38 @@
  */
 package ChessEngine;
 
-public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
+import java.util.Scanner;
 
-    public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+import ChessEngine.Board.ChessBoard;
+import ChessEngine.Enums.Side;
+import ChessEngine.Exceptions.IllegalPositionException;
+
+
+public class App {
+
+    static Scanner scanner;
+    static Side alligencSide = Side.BLACK;
+    public static void main(String[] args) throws IllegalPositionException {
+        // System.out.println(new App().getGreeting());
+        scanner = new Scanner(System.in);
+        ChessBoard board = new ChessBoard();
+        
+            while(true){
+                board.generateBoard();
+                String playerInput = extracted();
+
+                //NEED TO CHECK FOR MOVE
+                runMove(playerInput);
+                System.out.println("\033[H\033[2J");
+                System.out.flush();
+            }
+    }
+    private static String extracted() {
+        System.out.print("Player " + alligencSide.turn() + " :") ; // add in enum for allegiance 
+        alligencSide = alligencSide.turn();
+        return scanner.nextLine();
+    }
+    private static void runMove(String playerInput) {
+        System.out.println("I love to move it move it");
     }
 }

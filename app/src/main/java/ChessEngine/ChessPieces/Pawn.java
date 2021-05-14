@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ChessEngine.Board.ChessBoard;
-import ChessEngine.Board.IllegalMoveException;
 import ChessEngine.Board.Position;
 import ChessEngine.Board.Tile;
+import ChessEngine.Exceptions.IllegalPositionException;
 
 /**
  * Pawn
@@ -34,7 +34,7 @@ public class Pawn extends Piece{
         Position futurePosition;
         try {
             futurePosition = new Position(currentFilePos+1, position.getRank());
-        } catch (IllegalMoveException e) {
+        } catch (IllegalPositionException e) {
             e.printStackTrace();
             return listOfMoves;
         }

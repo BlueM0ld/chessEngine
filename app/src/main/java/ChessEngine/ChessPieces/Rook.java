@@ -1,11 +1,11 @@
 package ChessEngine.ChessPieces;
 
-import ChessEngine.Board.ChessBoard;
-import ChessEngine.Board.IllegalMoveException;
-import ChessEngine.Board.Position;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import ChessEngine.Board.ChessBoard;
+import ChessEngine.Board.Position;
+import ChessEngine.Exceptions.IllegalPositionException;
 
 public class Rook extends Piece {
 
@@ -24,14 +24,14 @@ public class Rook extends Piece {
         int currentFilePosition = position.getFile();
         int currentRankPosition = position.getRank();
 
-        Position futurePosition;
+        // Position futurePosition;
 
         try{
             for(int i = 0; i<8 ; i++) {
                 listOfMoves.add(new Position(i, currentRankPosition));
                 listOfMoves.add(new Position(currentFilePosition, i));
             }
-        }catch (IllegalMoveException e){
+        }catch (IllegalPositionException e){
             System.out.println("Illegal move caught");
         }
         return null;
