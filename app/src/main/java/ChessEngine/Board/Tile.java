@@ -1,6 +1,7 @@
 package ChessEngine.Board;
 
 import ChessEngine.ChessPieces.Piece;
+import ChessEngine.Enums.Pieces;
 
 /**
  * Tile
@@ -13,8 +14,8 @@ public class Tile {
 
     public Tile(Piece pieceType, Position position){
         this.pieceType = pieceType;
-        this.position = position;
         this.isOccupied = true;
+        this.position = position;
     }
 
     public Tile(Position position){
@@ -44,6 +45,10 @@ public class Tile {
 
     public void setIsOccupied(Boolean occupyFlag){
         this.isOccupied = occupyFlag;
+    }
+
+    public void removePiece() {
+        this.pieceType = null;
     }
 
 

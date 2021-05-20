@@ -2,11 +2,14 @@ package ChessEngine.ChessPieces;
 
 import ChessEngine.Board.ChessBoard;
 import ChessEngine.Board.Position;
+import ChessEngine.Enums.Pieces;
+import ChessEngine.Enums.Side;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class King extends Piece{
+
 
     Position position;
     //Maybe it will be easier ( ;-;)
@@ -21,10 +24,21 @@ public class King extends Piece{
             {-1,1}
     };
 
-    public King(Position position){this.position = position;}
+    public King(Position position, Side side){this.position = position;}
+
     @Override
-    public String typeOfPiece() {
-        return "KING";
+    public Position getPosition() {
+        return position;
+    }
+
+    @Override
+    public void setPosition(Position position) {
+        this.position = position;
+    }
+
+    @Override
+    public Pieces typeOfPiece() {
+        return Pieces.K;
     }
 
     @Override

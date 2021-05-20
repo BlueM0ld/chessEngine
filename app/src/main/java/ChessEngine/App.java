@@ -3,38 +3,59 @@
  */
 package ChessEngine;
 
+import java.util.Map;
 import java.util.Scanner;
+// import java.util.AbstractMap.SimpleImmutableEntry;
 
 import ChessEngine.Board.ChessBoard;
+import ChessEngine.Board.Setup;
 import ChessEngine.Enums.Side;
 import ChessEngine.Exceptions.IllegalPositionException;
+import ChessEngine.Player.Move;
 
 
 public class App {
 
     static Scanner scanner;
-    static Side alligencSide = Side.BLACK;
+    static Side player = Side.WHITE;
+    static Map<String, String> allMovEntry;
     public static void main(String[] args) throws IllegalPositionException {
-        // System.out.println(new App().getGreeting());
         scanner = new Scanner(System.in);
-        ChessBoard board = new ChessBoard();
-        
-            while(true){
-                board.generateBoard();
-                String playerInput = extracted();
+        ChessBoard board = createBoard();
 
-                //NEED TO CHECK FOR MOVE
-                runMove(playerInput);
-                System.out.println("\033[H\033[2J");
-                System.out.flush();
+            while(true){
+                board.printBoard();
+                player = Move.moveTurn(player);
+                String playerInput = scanner.nextLine();
+
+                Move.readMove(playerInput, player,board);
+                
+
             }
+
+
     }
-    private static String extracted() {
-        System.out.print("Player " + alligencSide.turn() + " :") ; // add in enum for allegiance 
-        alligencSide = alligencSide.turn();
-        return scanner.nextLine();
+
+
+    private static ChessBoard createBoard() throws IllegalPositionException {
+        Setup setup = new Setup();
+        ChessBoard board = new ChessBoard(setup.standardBoardSetup());
+        return board;
     }
-    private static void runMove(String playerInput) {
-        System.out.println("I love to move it move it");
+
+    //This clears the terminal ....how does it work ....?
+    private static void refresh(ChessBoard board) {
+        // System.out.println("\033[H\033[2J");
+        // System.out.flush();
+
+        // board.printBoard();
+
     }
+
+    // private static void runMove(String playerInput, Side playerSide) {
+    //     System.out.println("I love to move it move it");
+    //     allMovEntry.put(playerSide.toString(), playerInput);
+    //     //TODO REMEMBER ALL MOVES PLAYERS HAVE WROTE
+    //     //TODO //Read the move then MUTATE THE BOARD
+    // }
 }

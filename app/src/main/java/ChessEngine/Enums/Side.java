@@ -2,7 +2,8 @@ package ChessEngine.Enums;
 
 public enum Side {
     BLACK,
-    WHITE;
+    WHITE,
+    NONE;
 
     public Side turn(){
         if(this.equals( WHITE)){

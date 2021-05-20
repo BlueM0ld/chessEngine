@@ -2,6 +2,8 @@ package ChessEngine.ChessPieces;
 
 import ChessEngine.Board.ChessBoard;
 import ChessEngine.Board.Position;
+import ChessEngine.Enums.Pieces;
+import ChessEngine.Enums.Side;
 
 import java.util.List;
 
@@ -13,13 +15,24 @@ public class Knight extends Piece {
 
     Position position;
 
-    public Knight(Position position){
+    public Knight(Position position, Side side){
         this.position = position;
     }
 
     @Override
-    public String typeOfPiece(){
-        return "KNIGHT";
+    public Position getPosition() {
+        return position;
+    }
+
+    @Override
+    public void setPosition(Position position) {
+        this.position = position;
+    }
+
+
+    @Override
+    public Pieces typeOfPiece(){
+        return Pieces.N;
     };
     
     @Override

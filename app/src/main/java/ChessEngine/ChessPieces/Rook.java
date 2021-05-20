@@ -5,17 +5,29 @@ import java.util.List;
 
 import ChessEngine.Board.ChessBoard;
 import ChessEngine.Board.Position;
+import ChessEngine.Enums.Pieces;
+import ChessEngine.Enums.Side;
 import ChessEngine.Exceptions.IllegalPositionException;
 
 public class Rook extends Piece {
 
     Position position;
 
-    public Rook(Position position){this.position = position;}
+    public Rook(Position position, Side side){this.position = position;}
 
     @Override
-    public String typeOfPiece() {
-        return "ROOK";
+    public Position getPosition() {
+        return position;
+    }
+
+    @Override
+    public void setPosition(Position position) {
+        this.position = position;
+    }
+
+    @Override
+    public Pieces typeOfPiece() {
+        return Pieces.R;
     }
 
     @Override
